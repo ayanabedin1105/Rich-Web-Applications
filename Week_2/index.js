@@ -1,4 +1,4 @@
 // Change Color on Click
-function changeColor() {
+function changeColorBlue() {
   document.getElementById("box").style.backgroundColor = "blue";
 }
