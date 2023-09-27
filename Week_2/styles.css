@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+}
+
+#container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#box {
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 35%;
+    margin-right: 50%;
+    background-color: #ce4257;
+}
+button {
+  margin-top: 10px;
+  width: 10%;
+  height: 40px;
+  border: 1px solid;
+  background: #ce4257;
+  border-radius: 25px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+button:hover {
+  border-color: #ce4257;
+  transition: 0.3s;
+}
