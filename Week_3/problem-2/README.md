@@ -1,0 +1,1 @@
+This is a note-taking app. User can add , edit and delete note. Each notes will be in a colored box. Users also can select colors of the note.
