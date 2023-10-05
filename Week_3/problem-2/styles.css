@@ -50,9 +50,10 @@
   border-radius: 5px;
 }
 
-.input-box i {
+.input-box img {
+  width: 22px;
   position: absolute;
-  bottom: 24px;
-  right: 20px;
+  bottom: 18px;
+  right: 18px;
   cursor: pointer;
 }
