@@ -58,11 +58,7 @@
   cursor: pointer;
 }
 
-.input-box input {
-  width: 30px;
-  position: absolute;
-  bottom: 18px;
-  right: 50px;
-  cursor: pointer;
-
+/* Changing the color of contenteditable paragraph  */
+[contenteditable] {
+  background: rgb(92, 233, 92);
 }

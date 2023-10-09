@@ -19,11 +19,16 @@
     <div class="container">
       <h1><i class="fa-solid fa-note-sticky fa-lg" style="color: #1a1919"></i> Notes</h1>
       <button class="notes-btn">Create Notes</button>
+      <select name="color" id="color" onclick="setColor()">
+        <option value="red" id="red">Red</option>
+        <option value="rgb(92, 233, 92)" id="green">Green</option>
+        <option value="blue" id="blue">Blue</option>
+      </select>
 
       <!-- create note inputs -->
       <div class="notes-container">
         <!-- <p contenteditable="true" class="input-box">
-          <input type="color" id="colorpicker" value="#0000ff">
+        
           <img src="images/trash-solid.svg" alt="Delete Image">
         </p> -->
       </div>
