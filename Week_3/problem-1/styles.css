@@ -12,6 +12,17 @@
   text-align: center;
 }
 
+.inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.inner-grid > div {
+  background: #85b9e4;
+  padding: 8px;
+}
+
 /* Using media queries */
 @media screen and (max-width: 960px) {
   .outer-grid-container {
