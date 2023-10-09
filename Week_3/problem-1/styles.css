@@ -20,4 +20,9 @@
   }
 }
 
-
+@media screen and (max-width: 640px) {
+  .outer-grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
