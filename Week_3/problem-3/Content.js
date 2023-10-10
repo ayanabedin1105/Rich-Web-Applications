@@ -12,7 +12,7 @@ let catsQuotes = [
   "Cats are believed to be the only mammals who don’t taste sweetness.",
   "Cats are nearsighted, but their peripheral vision and night vision are much better than that of humans.",
   "Cats are supposed to have 18 toes (five toes on each front paw; four toes on each back paw).",
-  "Cats have 230 bones, while humans only have 206",
+  "Cats have 230 bones, while humans only have 206.",
   "Cats have whiskers on the backs of their front legs, as well.",
   "Cats have the largest eyes relative to their head size of any mammal.",
 ];
@@ -36,8 +36,10 @@ for (let i = 0; i < quotes.length; i++) {
   const randomQuotes = Math.floor(Math.random() * catsQuotes.length);
   quotes[i].innerText = catsQuotes[randomQuotes];
 }
-//do the same for p elements
-const p = document.getElementsByTagName("p");
-for (let i = 0; i < p.length; i++) {
-  p[i].innerText = "This website is now about cats.";
-}
+
+// accessing the p
+let elIntro = document.getElementById("intro");
+document.getElementById("demo-intro").innerHTML = "The text from the intro paragraph is: " + elIntro.innerHTML;
+
+// styling the p
+elIntro.style.color = "#ce4257";
