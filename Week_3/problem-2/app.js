@@ -1,74 +1,48 @@
-let notesContainer = document.querySelector(".notes-container");
-let createBtn = document.querySelector(".notes-btn");
-let notes = document.querySelectorAll(".input-box");
+let currentEditNote = null;
 
-// Colors
-var red = document.getElementById("red");
-var blue = document.getElementById("blue");
-var green = document.getElementById("green");
+// function to change color of notes
+function changeColor() {
+  const colorPicker = document.getElementById("colorPicker");
+  const notes = document.getElementById("notes");
 
-//function for colors
-red.addEventListener("click", function () {
-  setColor("#f00");
-});
-
-blue.addEventListener("click", function () {
-  setColor("#00f");
-});
-green.addEventListener("click", function () {
-  setColor("rgb(92, 233, 92)");
-});
-
-function setColor(color) {
-  document.execCommand("styleWithCSS", false, true);
-  document.execCommand("foreColor", false, color);
+  notes.style.backgroundColor = colorPicker.value;
 }
 
-//function to check if localstorage already exists
-function showNotes() {
-  notesContainer.innerHTML = localStorage.getItem("notes");
-}
+// function to add notes
+function addNote() {
+  let noteText = document.getElementById("notes").value;
 
-showNotes();
-// setColor();
-
-//create Local Storage
-function updateStorage() {
-  localStorage.setItem("notes", notesContainer.innerHTML);
-}
-
-updateStorage();
-
-// creating button
-createBtn.addEventListener("click", () => {
-  let inputBox = document.createElement("p");
-  let img = document.createElement("img");
-  inputBox.className = "input-box";
-  inputBox.setAttribute("contenteditable", "true");
-  img.src = "images/trash-solid.svg";
-  notesContainer.appendChild(inputBox).appendChild(img);
-  notesContainer.setColor();
-});
-
-// Delete Button
-notesContainer.addEventListener("click", (e) => {
-  if (e.target.tagName === "IMG") {
-    e.target.parentElement.remove();
-    updateStorage();
-  } else if (e.target.tagName === "P") {
-    notes = document.querySelectorAll(".input-box");
-    notes.forEach((nt) => {
-      nt.onkeyup = function () {
-        updateStorage();
-      };
-    });
+  if (noteText.trim() !== "") {
+    let note = document.createElement("p");
+    note.style.backgroundColor = document.getElementById("notes").style.backgroundColor;
+    note.classList.add("note"); //Add the "note" class
+    // note.innerText = noteText;
+    note.innerHTML = `
+                    <p>${noteText}</p>
+                    <button onClick="editNote(this)">Edit</button>
+                    <button onclick="deleteNote(this)">Delete</button>
+                `;
+    document.body.appendChild(note);
+    document.getElementById("notes").value = "";
   }
-});
+}
 
-// function to prevent line break
-document.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
-    document.execCommand("insertLineBreak");
-    e.preventDefault();
+//function to editNote
+function editNote(editButton) {
+  let note = editButton.previousElementSibling;
+  let noteText = note.innerText;
+  document.getElementById("notes").value = noteText;
+  currentEditNote = note;
+}
+
+// Deleting note
+function deleteNote(button) {
+  const note = button.parentNode;
+  note.remove();
+}
+
+document.getElementById("notes").addEventListener("input", function () {
+  if (currentEditNote) {
+    currentEditNote.innerText = this.value;
   }
 });

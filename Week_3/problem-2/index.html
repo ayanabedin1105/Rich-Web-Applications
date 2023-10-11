@@ -3,34 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plex Note</title>
+    <title>Plex Notes App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css" />
-
     <script src="https://kit.fontawesome.com/a7e82826af.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <!-- <h1>Color Notepad</h1>
+    <div>
+      <input type="color" id="colorPicker" />
+      <button onclick="changeColor()">Change Color</button>
+      <br />
+      <textarea id="notes" rows="10" cols="30"></textarea>
+    </div> -->
+
     <div class="container">
       <h1><i class="fa-solid fa-note-sticky fa-lg" style="color: #1a1919"></i> Notes</h1>
-      <button class="notes-btn">Create Notes</button>
-      <select name="color" id="color" onclick="setColor()">
-        <option value="red" id="red">Red</option>
+      <button class="notes-btn" onclick="changeColor()">Color Change</button>
+
+      <!-- Dropdown option to pick color -->
+      <select name="color" id="colorPicker">
+        <option value="rgb(223, 133, 121)" id="red">Red</option>
         <option value="rgb(92, 233, 92)" id="green">Green</option>
-        <option value="blue" id="blue">Blue</option>
+        <option value="rgb(114, 211, 224)" id="blue">Blue</option>
       </select>
 
       <!-- create note inputs -->
       <div class="notes-container">
-        <!-- <p contenteditable="true" class="input-box">
-        
-          <img src="images/trash-solid.svg" alt="Delete Image">
-        </p> -->
+        <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+
+        <button class="add-btn" onclick="addNote()">Add Note</button>
       </div>
     </div>
 
