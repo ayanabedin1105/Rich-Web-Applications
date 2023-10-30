@@ -45,6 +45,14 @@ searchBtn.addEventListener("click", () => {
           })
           .join("");
         repoList.innerHTML = repoData;
+
+        //Making scrollable list
+        // Make the container scrollable if the number of repositories exceeds 5
+        if (data.length > 5) {
+          repoContainer.style.height = "300px"; // Set a fixed height
+        } else {
+          repoContainer.style.height = "auto"; // Auto height
+        }
       })
       .catch((error) => {
         repoList.innerHTML = `<p>Error: ${error.message}</p>`;
