@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Directory</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Phone Directory</h1>
+
+    <div id="phoneDirectoryContainer">
+      <form id="phoneDirectoryForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <span class="error-message" id="nameError"></span><br /><br />
+
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile" required />
+        <span class="error-message" id="mobileError"></span><br /><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <span class="error-message" id="emailError"></span><br /><br />
+
+        <input
+          type="button"
+          value="Add Contact"
+          onclick="validateAndAddEntry()"
+        />
+      </form>
+
+      <h2>Contact Summary</h2>
+      <input type="text" id="searchBar" oninput="searchMobile()" />
+      <table id="directoryTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="noResult">No matching result found.</div>
+    </div>
+
+    <!-- JS -->
+    <script src="app.js"></script>
+  </body>
+</html>
