@@ -22,6 +22,11 @@ body {
   align-items: center;
 }
 
+#repoContainer {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
 .header {
   /* display: inline-block; */
   width: 92%; /* Adjust the width as needed */

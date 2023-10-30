@@ -11,8 +11,8 @@
   <body>
     <div class="container">
       <div class="header">
-        <input type="text" id="search-bar" placeholder="Username" />
-        <button id="search-button">Search</button>
+        <input type="text" id="username" placeholder="Username" />
+        <button id="searchBtn">Search</button>
       </div>
 
       <div class="inside-container">
@@ -20,26 +20,8 @@
           <h5>User Profile</h5>
           <!-- <p>This is the content of the first card.</p> -->
 
-          <div class="row">
-            <p>Image</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-          </div>
-          <div class="row">
-            <p>Username</p>
-          </div>
-          <div class="row">
-            <p>Email</p>
-          </div>
-          <div class="row">
-            <p>Email</p>
-          </div>
-          <div class="row">
-            <p>Location</p>
-          </div>
-          <div class="row">
-            <p>Number of guests</p>
+          <div id="profileInfo">
+            <!-- User profile information will be displayed here -->
           </div>
         </div>
 
@@ -47,32 +29,16 @@
           <h5>User Repos</h5>
           <!-- <p>This is the content of the second card.</p> -->
 
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
-          </div>
-          <div class="row">
-            <p>Name</p>
-            <p>Description</p>
+          <div id="repoContainer">
+            <div id="repoInfo">
+              <!-- List of user repositories will be displayed here -->
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
   </body>
 </html>
