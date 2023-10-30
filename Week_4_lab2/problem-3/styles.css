@@ -6,47 +6,34 @@ body {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 1px solid black;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.inside-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  /* display: inline-block; */
+  width: 84%; /* Adjust the width as needed */
+  margin: 1%; /* Add some margin between the cards */
+  border: 1px solid black;
   padding: 20px;
-}
-
-.search-container {
-  width: 30%;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-container {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
 }
 
 .card {
-  flex: 1;
-  background-color: #fff;
+  display: inline-block;
+  width: 48%; /* Adjust the width as needed */
+  margin: 1%; /* Add some margin between the cards */
+  border: 1px solid black;
   padding: 20px;
-  margin: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-input {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-button {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
 }
