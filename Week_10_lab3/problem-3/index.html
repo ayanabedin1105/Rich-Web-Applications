@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem 3</title>
-</head>
-<body>
-    <div id="root"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Note Management</title>
+    <style>
+      /* Basic CSS for styling */
+      body {
+        text-align: center;
+      }
+      .note {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .child-note {
+        margin-left: 20px;
+      }
+      .button-container {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="notes-container"></div>
 
+    <script>
+      class Note {
+        constructor(text, parent = null) {
+          this.text = text;
+          this.parent = parent;
+          this.children = [];
+        }
 
-    JavaScript
-    <script src="app.js"></script>
-</body>
+        addChild(childNote) {
+          this.children.push(childNote);
+          childNote.parent = this;
+        }
+
+        removeChild(childNote) {
+          const index = this.children.indexOf(childNote);
+          if (index !== -1) {
+            this.children.splice(index, 1);
+            childNote.parent = null;
+          }
+        }
+
+        delete() {
+          if (this.parent) {
+            this.parent.removeChild(this);
+          }
+          // Additional deletion logic if needed
+        }
+      }
+
+      // Function to render notes in the DOM
+      const renderNotes = (note, container) => {
+        const noteElement = document.createElement("div");
+        noteElement.classList.add("note");
+        noteElement.textContent = note.text;
+
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add Child";
+        addButton.addEventListener("click", () => {
+          const childNote = new Note(`Child of ${note.text}`, note);
+          note.addChild(childNote);
+          renderNotes(childNote, noteElement);
+        });
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+          note.delete();
+          noteElement.remove();
+        });
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
+        buttonContainer.appendChild(addButton);
+        buttonContainer.appendChild(deleteButton);
+
+        noteElement.appendChild(buttonContainer);
+
+        container.appendChild(noteElement);
+
+        if (note.children.length > 0) {
+          const childrenContainer = document.createElement("div");
+          note.children.forEach((child) =>
+            renderNotes(child, childrenContainer)
+          );
+          childrenContainer.classList.add("child-note");
+          noteElement.appendChild(childrenContainer);
+        }
+      };
+
+      const topLevelNote = new Note("Top-Level Note");
+      const notesContainer = document.getElementById("notes-container");
+      renderNotes(topLevelNote, notesContainer);
+    </script>
+  </body>
 </html>
