@@ -12,7 +12,9 @@ function App() {
       if (editingNoteIndex !== null) {
         // If editing, update the existing note
         const updatedNotes = notes.map((note, index) =>
-          index === editingNoteIndex ? { ...note, text: noteInput } : note
+          index === editingNoteIndex
+            ? { ...note, text: noteInput, color: selectedColor }
+            : note
         );
         setNotes(updatedNotes);
         setEditingNoteIndex(null);
@@ -36,6 +38,7 @@ function App() {
   const startEditingNote = (index) => {
     setEditingNoteIndex(index);
     setNoteInput(notes[index].text);
+    setSelectedColor(notes[index].color);
   };
 
   return (
@@ -57,19 +60,38 @@ function App() {
         <span>Change Note Color:</span>
         <button
           onClick={() => changeColor("#ffffff")}
-          style={{ backgroundColor: "#ffffff" }}
+          style={{
+            backgroundColor: "#ffffff",
+            border: selectedColor === "#ffffff" ? "2px solid black" : "none",
+          }}
         ></button>
         <button
           onClick={() => changeColor("#ffcccb")}
-          style={{ backgroundColor: "#ffcccb" }}
+          style={{
+            backgroundColor: "#ffcccb",
+            border: selectedColor === "#ffcccb" ? "2px solid black" : "none",
+          }}
         ></button>
         <button
           onClick={() => changeColor("#ccffcc")}
-          style={{ backgroundColor: "#ccffcc" }}
+          style={{
+            backgroundColor: "#ccffcc",
+            border: selectedColor === "#ccffcc" ? "2px solid black" : "none",
+          }}
         ></button>
         <button
           onClick={() => changeColor("#cce6ff")}
-          style={{ backgroundColor: "#cce6ff" }}
+          style={{
+            backgroundColor: "#cce6ff",
+            border: selectedColor === "#cce6ff" ? "2px solid black" : "none",
+          }}
+        ></button>
+        <button
+          onClick={() => changeColor("#ce4257")}
+          style={{
+            backgroundColor: "#ce4257",
+            border: selectedColor === "#ce4257" ? "2px solid black" : "none",
+          }}
         ></button>
       </div>
       <div className="note-cards">
@@ -77,7 +99,10 @@ function App() {
           <div
             key={index}
             className="note-card"
-            style={{ backgroundColor: note.color }}
+            style={{
+              backgroundColor: note.color,
+              border: selectedColor === note.color ? "2px solid black" : "none",
+            }}
           >
             <textarea
               value={note.text}
