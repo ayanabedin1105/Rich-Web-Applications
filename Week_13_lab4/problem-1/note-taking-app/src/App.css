@@ -1,38 +1,62 @@
 .App {
   text-align: center;
+  margin-top: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Adjust the input box size */
+input[type="text"] {
+  padding: 12px; /* Increase padding for height */
+  margin-right: 8px;
+  width: 70%; /* Adjust the width as needed */
+  max-width: 400px; /* Set a maximum width */
+  font-size: 16px; /* Modify font size */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  padding: 8px 16px;
+  background-color: #ce4257;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #b16873;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.color-selector {
+  margin-top: 20px;
+}
+
+.color-selector span {
+  margin-right: 10px;
+}
+
+.color-selector button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.note-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.note-card {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 200px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
 }
