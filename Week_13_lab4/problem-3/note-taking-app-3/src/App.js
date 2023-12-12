@@ -46,6 +46,26 @@ function App() {
     note.text.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Share feature
+  const shareNote = (noteText) => {
+    if (navigator.share) {
+      // If the browser supports the Web Share API, use it to share the note's content
+      navigator
+        .share({
+          title: "Shared Note",
+          text: noteText,
+        })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.error("Error sharing:", error));
+    } else {
+      // If the Web Share API is not supported, copy the note's content to the clipboard
+      navigator.clipboard
+        .writeText(noteText)
+        .then(() => console.log("Note copied to clipboard"))
+        .catch((error) => console.error("Error copying note:", error));
+    }
+  };
+
   return (
     <div className="App">
       <h1>Note Taking App</h1>
@@ -127,6 +147,7 @@ function App() {
             />
             <div className="note-actions">
               <button onClick={() => deleteNote(index)}>Delete</button>
+              <button onClick={() => shareNote(note.text)}>Share</button>
             </div>
           </div>
         ))}
