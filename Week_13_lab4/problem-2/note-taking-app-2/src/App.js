@@ -6,6 +6,7 @@ function App() {
   const [noteInput, setNoteInput] = useState("");
   const [selectedColor, setSelectedColor] = useState("#ffffff"); // Default color
   const [editingNoteIndex, setEditingNoteIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const addNote = () => {
     if (noteInput.trim() !== "") {
@@ -40,6 +41,10 @@ function App() {
     setNoteInput(notes[index].text);
     setSelectedColor(notes[index].color);
   };
+
+  const filteredNotes = notes.filter((note) =>
+    note.text.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="App">
@@ -94,8 +99,16 @@ function App() {
           }}
         ></button>
       </div>
+
+      {/* Search area */}
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Search notes"
+      />
       <div className="note-cards">
-        {notes.map((note, index) => (
+        {filteredNotes.map((note, index) => (
           <div
             key={index}
             className="note-card"
