@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Adjust the input box size */
+input[type="text"] {
+  padding: 12px; /* Increase padding for height */
+  margin-right: 8px;
+  width: 70%; /* Adjust the width as needed */
+  max-width: 400px; /* Set a maximum width */
+  font-size: 16px; /* Modify font size */
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #ce4257;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b16873;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.color-selector {
+  margin-top: 20px;
+}
+
+.color-selector span {
+  margin-right: 10px;
+}
+
+.color-selector button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.note-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.note-card {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 200px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
